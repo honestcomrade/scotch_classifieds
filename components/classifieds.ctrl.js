@@ -9,6 +9,7 @@
         first: "Joe",
         last: "Scarpacelli"
       }
+      $scope.message = "Hello, World!!!";
 
     });
 })();
