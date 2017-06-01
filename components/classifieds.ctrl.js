@@ -5,8 +5,6 @@
   angular
     .module("ngClassifieds")
     .controller("classifiedsCtrl", function($scope) {
-      
-      $scope.name = "Joe";
-      
+
     });
 })();
