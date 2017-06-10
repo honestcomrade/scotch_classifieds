@@ -37,6 +37,11 @@
           );
         }
       }
+
+      $scope.editClassified = function(classified) {
+        $scope.editing = true;
+        $scope.openSidebar();
+      }
       
     });
 })();
