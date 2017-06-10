@@ -7,7 +7,7 @@
 
       classifiedsFactory.getClassifieds().then(function(classifieds) {
         $scope.classifieds = classifieds.data;
-      })
+      });
       
     });
 })();
