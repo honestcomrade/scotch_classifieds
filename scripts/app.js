@@ -17,6 +17,7 @@ angular
         template: '<h1>State Two</h1>'
       });
   })
-  .controller('stateOneCtrl', function($scope) {
-    this.message = "Hey from state one";
+  .controller('stateOneCtrl', function() {
+    var vm = this;
+    vm.message = "awepoinspfomase";
   });
