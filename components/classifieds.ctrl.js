@@ -7,12 +7,25 @@
 
       classifiedsFactory.getClassifieds().then(function(classifieds) {
         $scope.classifieds = classifieds.data;
+        $scope.categories = getCategories($scope.classifieds);
       });
 
       var contact = {
         name: "Jessica",
         phone: "212-2552",
         email: "jofs@gnami.vk"
+      }
+
+      function getCategories(classifieds) {
+        var categories = [];
+        
+        angular.forEach(classifieds, function(item) {
+          angular.forEach(item.categories, function(category) {
+            categories.push(category);
+          });
+        });
+
+        return _.uniq(categories);
       }
 
       $scope.openSidebar = function() {

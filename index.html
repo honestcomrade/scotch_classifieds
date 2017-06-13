@@ -33,6 +33,23 @@
       <input type="text" ng-model="classifiedsFilter">
     </md-input-container>
 
+    <md-input-container layout="row">
+      <label>Category</label>
+      <md-select ng-model="category">
+        <md-option ng-repeat="category in categories" value="{{ category }}">
+          {{ category }}
+        </md-option>  
+      </md-select>      
+    </md-input-container>
+
+    <div layout="row">
+      <md-button class="md-warn" 
+                 ng-click="classifiedsFilter = ''; 
+                           category=''">
+        Clear
+      </md-button>
+    </div>
+
   </div>
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" 
     md-component-id="left">
@@ -81,7 +98,11 @@
   </md-sidenav>
 
   <md-content class="md-padding" layout="row" layout-wrap>
-    <md-card ng-repeat="classified in classifieds | filter:classifiedsFilter" flex="30">
+    <md-card ng-repeat="classified in classifieds | 
+                        filter: classifiedsFilter | 
+                        filter: category" 
+                        flex="30"
+                        class="classified">
       <img ng-src="{{ classified.image }}" alt="">
       <md-card-content>
 
@@ -121,7 +142,7 @@
         </div>
 
         <div class="classified-admin" ng-if="showAdmin">
-            <h3>Admin</h3>
+          <h3>Admin</h3>
             <div layout="row">
               <md-button 
                 ng-click="editClassified(classified)" 
@@ -147,5 +168,6 @@
   <script src="scripts/app.js"></script>
   <script src="components/classifieds.ctrl.js"></script>
   <script src="components/classifieds.fac.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
 </body>
 </html>
