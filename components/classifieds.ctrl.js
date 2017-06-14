@@ -5,19 +5,18 @@
     .module("ngClassifieds")
     .controller("classifiedsCtrl", function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
 
-      var vm=this;
+      var vm = this;
 
-      vm.openSidebar = openSidebar;
-      vm.closeSidebar = closeSidebar;
-      vm.saveClassified = saveClassified;
-      vm.editClassified = editClassified;
-      vm.deleteClassified = deleteClassified;
-      vm.saveEdit = saveEdit;
-
-      vm.classifieds;
       vm.categories;
-      vm.editing;
       vm.classified;
+      vm.classifieds;
+      vm.closeSidebar = closeSidebar;
+      vm.deleteClassified = deleteClassified;
+      vm.editClassified = editClassified;
+      vm.editing;
+      vm.openSidebar = openSidebar;
+      vm.saveClassified = saveClassified;
+      vm.saveEdit = saveEdit;
 
       classifiedsFactory.getClassifieds().then(function(classifieds) {
         vm.classifieds = classifieds.data;
@@ -97,6 +96,5 @@
         return _.uniq(categories);
       }
 
-      
     });
 })();
