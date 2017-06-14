@@ -7,17 +7,9 @@ angular
       .accentPalette('orange');
 
     $stateProvider
-      .state('stateone', {
-        url: '/stateone',
-        template: '<h1>{{ stateone.message }}</h1>',
-        controller: 'stateOneCtrl as stateone'
+      .state('classifieds', {
+        url: '/classifies',
+        template: 'components/classifieds/classifieds.tpl.html',
+        controller: 'classifiedsCtrl as vm'
       })
-      .state('statetwo', {
-        url: '/statetwo',
-        template: '<h1>State Two</h1>'
-      });
-  })
-  .controller('stateOneCtrl', function() {
-    var vm = this;
-    vm.message = "awepoinspfomase";
   });
