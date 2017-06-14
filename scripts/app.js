@@ -1,15 +1,16 @@
 angular
   .module("ngClassifieds", ["ngMaterial", 'ui.router'])
-  .config(function($mdThemingProvider, $stateProvider) {
-    
+  .config(function($mdThemingProvider, $stateProvider, $urlRouterProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('teal')
       .accentPalette('orange');
 
     $stateProvider
       .state('classifieds', {
-        url: '/classifies',
-        template: 'components/classifieds/classifieds.tpl.html',
+        url: '/classifieds',
+        templateUrl: 'components/classifieds/classifieds.tpl.html',
         controller: 'classifiedsCtrl as vm'
       })
+
+    $urlRouterProvider.otherwise('classifieds');
   });
